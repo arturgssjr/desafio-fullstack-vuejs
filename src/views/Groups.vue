@@ -207,7 +207,6 @@ import TableVue from "@/components/partials/TableVue";
 import TableLineVue from "@/components/partials/TableLineVue";
 import { mapActions, mapGetters } from "vuex";
 import {} from "@/filters";
-import axios from "axios";
 
 export default {
   name: "Groups",
@@ -231,7 +230,7 @@ export default {
   methods: {
     ...mapActions("groups", ["setGroupList", "setGroup"]),
     postGroup() {
-      axios
+      this.$http
         .post("/groups", {
           name: this.group.name
         })
@@ -255,7 +254,7 @@ export default {
         });
     },
     updateGroup(id) {
-      axios
+      this.$http
         .put("/groups/" + id, {
           name: this.group.name
         })
@@ -279,7 +278,7 @@ export default {
         });
     },
     deleteGroup(id) {
-      axios
+      this.$http
         .delete("/groups/" + id)
         .then(() => {
           this.showAlertMessage = true;

@@ -5,13 +5,12 @@ import "bootstrap";
 import "./assets/scss/app.scss";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "@fortawesome/fontawesome-free/js/all";
-import config from "./config";
 import store from "./store";
-import axios from "axios";
-
-axios.defaults.baseURL = config.api.url;
+import http from "./http";
 
 Vue.config.productionTip = false;
+
+Vue.prototype.$http = http;
 
 new Vue({
   router,

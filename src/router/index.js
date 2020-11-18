@@ -10,23 +10,23 @@ const routes = [
   {
     path: "/users",
     name: "users",
-    component: Users
+    component: Users,
   },
   {
     path: "/groups",
     name: "groups",
-    component: Groups
+    component: Groups,
   },
   {
     path: "/files",
     name: "files",
-    component: Files
-  }
+    component: Files,
+  },
 ];
 
 const router = new VueRouter({
   mode: "history",
-  routes
+  routes,
 });
 
 export default router;

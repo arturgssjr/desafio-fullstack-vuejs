@@ -4,6 +4,4 @@ const config = {
   }
 };
 
-global.config = config;
-
 export default config;

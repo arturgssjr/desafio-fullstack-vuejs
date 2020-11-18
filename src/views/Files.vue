@@ -166,7 +166,7 @@ export default {
     AlertVue,
     TableLineVue,
     LinkVue,
-    HrVue
+    HrVue,
   },
   data() {
     return {
@@ -182,7 +182,7 @@ export default {
           size: 2048,
           registerUserId: 1,
           createdAt: "2019-12-04 22:34:00",
-          updatedAt: "2019-12-04 22:34:00"
+          updatedAt: "2019-12-04 22:34:00",
         },
         {
           id: 2,
@@ -192,7 +192,7 @@ export default {
           size: 2048,
           registerUserId: 1,
           createdAt: "2019-12-04 22:34:00",
-          updatedAt: "2019-12-04 22:34:00"
+          updatedAt: "2019-12-04 22:34:00",
         },
         {
           id: 3,
@@ -202,7 +202,7 @@ export default {
           size: 2048,
           registerUserId: 1,
           createdAt: "2019-12-04 22:34:00",
-          updatedAt: "2019-12-04 22:34:00"
+          updatedAt: "2019-12-04 22:34:00",
         },
         {
           id: 4,
@@ -212,11 +212,11 @@ export default {
           size: 2048,
           registerUserId: 1,
           createdAt: "2019-12-04 22:34:00",
-          updatedAt: "2019-12-04 22:34:00"
-        }
-      ]
+          updatedAt: "2019-12-04 22:34:00",
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 

@@ -150,7 +150,7 @@
       <template v-slot:modal-body>
         <div class="form-group">
           <input
-            v-model="postInfoUser.name"
+            v-model="user.name"
             type="text"
             name="userName"
             class="form-control"
@@ -159,7 +159,7 @@
         </div>
         <div class="form-group">
           <input
-            v-model="postInfoUser.email"
+            v-model="user.email"
             type="text"
             name="userEmail"
             class="form-control"
@@ -167,7 +167,7 @@
           />
         </div>
         <div class="form-group">
-          <select class="form-control" v-model="postInfoUser.group">
+          <select class="form-control" v-model="user._embedded.group.id">
             <option>Selecione o grupo</option>
             <option
               v-for="(group, index) in listGroups"
@@ -255,9 +255,8 @@ import TableLineVue from "@/components/partials/TableLineVue";
 import HrVue from "@/components/partials/HrVue";
 import TitleVue from "@/components/partials/TitleVue";
 import ModalVue from "@/components/partials/ModalVue";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapState } from "vuex";
 import {} from "@/filters";
-import axios from "axios";
 
 export default {
   name: "Users",
@@ -287,7 +286,7 @@ export default {
     ...mapActions("groups", ["setGroupList"]),
     ...mapActions("users", ["setUserList", "setUser"]),
     postUser() {
-      axios
+      this.$http
         .post("/users", this.postInfoUser)
         .then(() => {
           this.setUserList();
@@ -309,7 +308,8 @@ export default {
         });
     },
     updateUser(id) {
-      axios
+      console.log(this.postInfoUser.name);
+      this.$http
         .put("/users/" + id, {
           name: this.postInfoUser.name,
           email: this.postInfoUser.email,
@@ -335,7 +335,7 @@ export default {
         });
     },
     deleteUser(id) {
-      axios
+      this.$http
         .delete("/users/" + id)
         .then(() => {
           this.setUserList();
@@ -369,7 +369,9 @@ export default {
   },
   computed: {
     ...mapGetters("groups", ["listGroups"]),
-    ...mapGetters("users", ["listUsers", "user"])
+    ...mapGetters("users", ["listUsers", "user"]),
+    ...mapState("groups", ["listGroups"]),
+    ...mapState("users", ["listUsers", "user"]),
   },
   mounted() {
     this.setUserList();
